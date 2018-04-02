@@ -33,7 +33,8 @@ try:
             break
 
     message = message.decode('utf8')
-    print(message)
+    print('{} Echoed: {}'.format(datetime.now().strftime('%H:%M:%S %d-%m-%y'), message))
+    # print(message)
     # message = 'thanks for the note'
 
     conn.sendall(message.encode('utf8'))

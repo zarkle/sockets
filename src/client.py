@@ -23,7 +23,6 @@ server_msg = b''
 while not message_complete:
     part = client.recv(buffer_length)
     server_msg += part
-    # print(part.decode('utf8'))
     if len(part) < buffer_length:
         break
 

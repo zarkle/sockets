@@ -15,8 +15,6 @@ sock.bind(address)
 try:
     sock.listen(1)
 
-# time_date = datetime.now().strftime('%H:%M:%S %d-%m-%y')
-
     print('--- Starting server on port {} at {} ---'.format(PORT, datetime.now().strftime('%H:%M:%S %d-%m-%y')))
     conn, addr = sock.accept()
 
@@ -27,15 +25,12 @@ try:
     message = b''
     while not message_complete:
         part = conn.recv(buffer_length)
-        # print(part.decode('utf8'))
         message += part
         if len(part) < buffer_length:
             break
 
     message = message.decode('utf8')
     print('{} Echoed: {}'.format(datetime.now().strftime('%H:%M:%S %d-%m-%y'), message))
-    # print(message)
-    # message = 'thanks for the note'
 
     conn.sendall(message.encode('utf8'))
 
